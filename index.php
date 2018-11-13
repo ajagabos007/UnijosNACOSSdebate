@@ -34,6 +34,7 @@ session_start();
                                     <label class="control-label col-sm-3">Name </label>
                                     <div class="col-sm-9">
                                         <input type="text" name="name" id="name" class="form-control"  minlength="3" value="<?php if(isset($_SESSION['name'])) echo $_SESSION['name'];?>" required/>
+                                        <span class="errors"><?php if(isset( $_SESSION['name_error'])) echo  $_SESSION['name_error'];?></span>
                                         <span class="errors" id="name_error"></span>
                                     </div>
                                 </div>
@@ -41,6 +42,7 @@ session_start();
                                     <label class="control-label col-sm-3">Mat_No. </label>
                                     <div class="col-sm-9">
                                         <input type="text" name="mat_no" id ="mat_no" class="form-control" placeholder="UJ/xxxx/NS/xxxx" value="<?php if(isset($_SESSION['mat_no'])) echo $_SESSION['mat_no'];?>" required/>
+                                        <span class="errors"><?php if(isset( $_SESSION['mat_no_error'])) echo  $_SESSION['mat_no_error'];?></span>
                                         <span class="errors"><?php if(isset( $_SESSION['errorMsg1'])) echo  $_SESSION['errorMsg1'];?></span>
                                         <span class="errors" id="mat_no_error"></span>
                                     </div>
@@ -61,6 +63,7 @@ session_start();
                                     <label class="control-label col-sm-3">Phone number</label>
                                     <div class="col-sm-9">
                                          <input type="number" name="phone_number" class="form-control" id="phone_number" minlength="11" maxlength="11" value="<?php if(isset($_SESSION['phone_number'])) echo $_SESSION['phone_number'];?>" required>
+                                         <span class="errors"><?php if(isset( $_SESSION['phone_number_error'])) echo  $_SESSION['phone_number_error'];?></span>
                                          <span class="errors"><?php if(isset( $_SESSION['errorMsg2'])) echo  $_SESSION['errorMsg2'];?></span>
                                          <span class="errors" id="phone_number_error"></span>
                                     </div>

@@ -5,13 +5,29 @@
     $level  = $_REQUEST['level'];
     $phone_number = $_REQUEST['phone_number'];
     $group = $_REQUEST['group'];
+
     session_start();
     $_SESSION['name']=$name;
     $_SESSION['mat_no']=$mat_no;
     $_SESSION['level']= $level;
     $_SESSION['phone_number']=$phone_number;
     $_SESSION['group'] = $group;
-    if(!user_Exist($mat_no,$phone_number,$connect)){
+
+    $nameValid = preg_match("/[a-zA-Z0-9]{3}/",$name);
+    $mat_noValid =preg_match("/^UJ\/[0-9]{4}\/ns\/[0-9]{4}$/i",$mat_no);
+    $phone_numberValid = preg_match("/^0[0-9]{10}$/i",$phone_number);
+
+    if(!$nameValid){
+        $_SESSION['name_error']="Name error...! at least 3 character expected";
+    }
+    if(!$mat_noValid){
+        $_SESSION['mat_no_error']="Wrong mat. No...! format: uj/1234/ns/1234";
+    }
+    if(!$phone_numberValid){
+        $_SESSION['phone_number_error']="Error phone number not correct..!";
+    }
+
+    if(!user_Exist($mat_no,$phone_number,$connect) && $nameValid && $mat_noValid && $phone_numberValid){
         $query = "INSERT into participants (name, mat_no, level, phone_number, debate_group) 
         values ('$name','$mat_no','$level','$phone_number','$group')";
         $query_run = mysqli_query($connect, $query);

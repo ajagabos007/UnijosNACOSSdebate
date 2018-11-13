@@ -38,8 +38,11 @@ session_start();
                     session_destroy();
                     ?>
                 </div>
+                <div class="col-sm-12">
+                    <h2> <center> Hackers are smarter, Intelligent and better than software developers</center></h2>
+                </div>
                 <div class="col-sm-6"> 
-                    <h2>Group A</h2>
+                    <h3>Group A <small><i>supporting the motion</i></small></h3>
 <?php if($query_run1){ 
     if(mysqli_num_rows($query_run1)!=0) {        
 ?>                    <div class="table-responsive table-bordered table-striped">
@@ -69,12 +72,12 @@ session_start();
 <?php
     }
     else
-         echo "<h3>No member in group A yet...! ";
+         echo "<h4>No member in group A yet...! </h4>";
         $index =0;
 }?>            
                 </div> 
                 <div class="col-sm-6">
-                    <h2>Group B</h2>
+                    <h3>Group B <small><i>Opposing the motion</i></small></h3>
 <?php if($query_run1){ 
     if(mysqli_num_rows($query_run2)!=0) {        
 ?>  
@@ -106,7 +109,7 @@ session_start();
                 <?php
     }
     else
-         echo "<h3>No member in  group B yet...! ";
+         echo "<h4>No member in  group B yet...! </h4>";
         $index =0;
 }?>         
               </div>
